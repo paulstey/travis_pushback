@@ -19,4 +19,4 @@ after_success:
   - echo "$pounds $num:" >> README.md
   - cat output.txt >> README.md
 
-  - ./initial_push.sh
+  - ./all_other_pushes.sh
