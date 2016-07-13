@@ -1,0 +1,22 @@
+# Documentation: http://docs.travis-ci.com/user/languages/python/
+language: python
+os:
+  - linux
+python:
+  - 2.7
+notifications:
+  email: false
+before_install:
+  - pwd
+  - git branch -a
+
+script:
+  - python collatz.py input.txt > output.txt
+  - cat output.txt
+after_success:
+  - pounds="### "
+  - num=`cat input.txt`
+  - echo "$pounds $num:" >> README.md
+  - cat output.txt >> README.md
+
+  - ./initial_push.sh
