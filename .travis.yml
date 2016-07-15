@@ -3,9 +3,7 @@ language: python
 os:
   - linux
 env:
-  - GH_USERNAME=paulstey
-  - GH_EMAIL=paulstey@gmail.com
-  - GH_REPONAME=travis_pushback
+  - GH_USERNAME=paulstey GH_EMAIL=paulstey@gmail.com GH_REPONAME=travis_pushback
 python:
   - 2.7
 notifications:
