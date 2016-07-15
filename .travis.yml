@@ -2,6 +2,10 @@
 language: python
 os:
   - linux
+env:
+  - GH_USERNAME=paulstey
+  - GH_EMAIL=paulstey@gmail.com
+  - GH_REPONAME=travis_pushback
 python:
   - 2.7
 notifications:
@@ -9,7 +13,6 @@ notifications:
 before_install:
   - pwd
   - git branch -a
-
 script:
   - python collatz.py input.txt > output.txt
   - cat output.txt

@@ -1,8 +1,8 @@
 #!/bin/sh
 
 setup_git() {
-  git config --global user.email "paulstey@gmail.com"
-  git config --global user.name "paulstey"
+  git config --global user.email ${GH_EMAIL}
+  git config --global user.name ${GH_USERNAME}
 }
 
 commit_files() {
@@ -12,7 +12,7 @@ commit_files() {
 }
 
 upload_files() {
-  git remote add origin-pages https://${GH_TOKEN}@github.com/paulstey/travis_pushback.git
+  git remote add origin-pages https://${GH_TOKEN}@github.com/paulstey/${GH_REPONAME}.git
   git push --quiet --set-upstream --force origin-pages gh-pages
 }
 

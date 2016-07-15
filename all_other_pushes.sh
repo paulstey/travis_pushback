@@ -3,18 +3,18 @@
 setup_git() {
     cat output.txt
     cd $HOME
-    git config --global user.email "paulstey@gmail.com"
-    git config --global user.name "paulstey"
-    git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/paulstey/travis_pushback.git gh-pages
+    git config --global user.email ${GH_EMAIL}
+    git config --global user.name ${GH_USERNAME}
+    git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${GH_USERNAME}/${GH_REPONAME}.git gh-pages
     cd gh-pages
 }
 
 update_file() {
     echo "\n" >> README.md
     pounds="### "
-    num=`cat /home/travis/build/paulstey/travis_pushback/input.txt`
+    num=`cat /home/travis/build/${GH_USERNAME}/${GH_REPONAME}/input.txt`
     echo "$pounds $num:" >> README.md
-    cat /home/travis/build/paulstey/travis_pushback/output.txt >> README.md
+    cat /home/travis/build/${GH_USERNAME}/${GH_REPONAME}/output.txt >> README.md
 }
 
 commit_files() {
